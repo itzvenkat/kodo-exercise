@@ -1,0 +1,23 @@
+<div class="pad">
+    <div class="table-responsive listing_table" style="overflow-y: hidden;">
+        <table class="table table-fixedd table-hover table-bordered text-nowrap mb-0 listing_table">
+            <thead>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Image</th>
+                <th>Last Updated</th>
+            </thead>
+            <tbody>
+                <tr *ngIf="(feed == undefined || feed == null || feed?.length == 0)">
+                    <td colspan="2" class="text-center">No Records</td>
+                </tr>
+                <tr *ngFor="let el of feed; let i = index">
+                    <td>{{el.name}}</td>
+                    <td>{{el.description}}</td>
+                    <td><a [href]="el.image" target="_blank" title="Open Image in new tab">{{el.image}}</a></td>
+                    <td>{{el.dateLastEdited | date: 'dd-MMM-YYYY hh:mm:ss a'}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

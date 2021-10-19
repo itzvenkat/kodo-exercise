@@ -1,0 +1,16 @@
+<ng-container *ngIf="items && items.length > 0">
+    <label class="btn-dropdown">
+        <div class="dd-button">{{selected_field}}</div>
+        <input type="checkbox" class="dd-input" id="sorting-btn-dropdown">
+        <ul class="dd-menu">
+            <li *ngFor="let opt of items; let i = index; trackBy: trackByFn" (click)="onFieldChange(opt)" [ngClass]="{ 'active': (opt.value === sort) }">
+                {{opt.label}}
+            </li>
+            <li class="divider"></li>
+            <li [ngClass]="{ 'active': sort_by === 'ASC' }" (click)="onSortByChange(1)">Ascending</li>
+            <li [ngClass]="{ 'active': sort_by === 'DESC' }" (click)="onSortByChange(2)">Descending</li>
+            <li class="divider"></li>
+            <li (click)="ClearSorting()">Clear Sorting</li>
+        </ul>
+    </label>
+</ng-container>

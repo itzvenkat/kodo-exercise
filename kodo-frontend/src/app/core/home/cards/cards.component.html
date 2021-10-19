@@ -1,0 +1,12 @@
+<section class="cards">
+    <div class="card" *ngFor="let el of feed">
+        <div class="card-image"
+            [ngStyle]="{'background-image': (el.image ? 'url('+el.image+')' : 'url(http://lorempixel.com/640/480)')}">
+        </div>
+        <div class="card-content">
+            <div class="card-title">{{el.name}}</div>
+            <div class="card-snippet">{{el.description}}</div>
+            <div class="card-footer">{{el.dateLastEdited | date: 'dd-MMM-YYYY hh:mm:ss a'}}</div>
+        </div>
+    </div>
+</section>

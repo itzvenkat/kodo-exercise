@@ -1,0 +1,1 @@
+export interface Paging { page: number, pages: number };

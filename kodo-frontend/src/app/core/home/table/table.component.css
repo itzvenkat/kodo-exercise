@@ -1,0 +1,110 @@
+.table-bordered > thead > tr > th,
+.table-bordered > tbody > tr > th,
+.table-bordered > tfoot > tr > th,
+.table-bordered > thead > tr > td,
+.table-bordered > tbody > tr > td,
+.table-bordered > tfoot > tr > td {
+  border: 1px solid #ddd;
+}
+
+.listing_table thead th {
+  text-transform: uppercase;
+  font-family: -apple-system, BlinkMacSystemFont, Inter, Ubuntu, "Proxima Nova",
+    "Helvetica Neue", sans-serif !important;
+  font-weight: 600 !important;
+  font-size: 11px !important;
+  color: #58666e !important;
+  background: #f6f8f8;
+  min-width: 250px;
+}
+
+.listing_table {
+  background: #fff;
+  border-spacing: 0;
+  -webkit-border-horizontal-spacing: 0px;
+  -webkit-border-vertical-spacing: 0px;
+  border-radius: 8px !important;
+  border-top-left-radius: 8px !important;
+  border-top-right-radius: 8px !important;
+  border-bottom-right-radius: 8px !important;
+  border-bottom-left-radius: 8px !important;
+  color: #58666e !important;
+}
+
+.listing_table-panel {
+  border-color: #e3e3e3;
+  box-shadow: 0 1px 0 0 #dadfe3;
+}
+
+.listing_table.table-hover tbody tr:hover {
+  background-color: #f9fafc !important;
+}
+
+.listing_table tbody tr td {
+  word-break: break-word;
+  white-space: break-spaces;
+}
+
+.table-responsive {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.table-responsive > .table-bordered {
+  border: 0;
+}
+
+.text-nowrap {
+  white-space: nowrap !important;
+}
+
+.table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-bottom: 0px;
+  color: #212529;
+}
+
+.table td,
+.table th {
+  padding: 0.75rem;
+  vertical-align: top;
+  border-top: 1px solid #dee2e6;
+}
+
+.table thead th {
+  vertical-align: bottom;
+  border-bottom: 2px solid #dee2e6;
+}
+
+.table tbody + tbody {
+  border-top: 2px solid #dee2e6;
+}
+
+.table-bordered,
+.table-bordered td,
+.table-bordered th {
+  border: 1px solid #dee2e6;
+}
+
+.table-bordered thead td,
+.table-bordered thead th {
+  border-bottom-width: 2px;
+}
+
+.table-hover tbody tr:hover {
+  color: #212529;
+  background-color: rgba(0, 0, 0, 0.075);
+}
+
+.listing_table.table-hover tbody tr:hover {
+  background-color: #f9fafc !important;
+}
+
+.ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

@@ -1,0 +1,38 @@
+<div class="container">
+    <nav class="navbar justify-content-between flex-nowrap flex-row px-0 mx-3">
+        <div class="w-100 px-0">
+            <ul class="nav navbar-nav flex-row float-left" [ngClass]="{'w-100': _isMobileView }">
+                <li class="nav-item d-flex" [ngClass]="{'mb-2 w-100': _isMobileView }">
+                    <app-search (searchEvent)="onSearchEvent($event)" [ngClass]="{'w-100': _isMobileView}"></app-search>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav flex-row float-right" [ngClass]="{'w-100': _isMobileView }">
+                <li class="nav-item d-flex ml-2"
+                    [ngClass]="{'mb-2 w-1000 justify-flex-start': _isMobileView, 'ml-2': !_isMobileView }">
+                    <app-sort (sortEvent)="onSortEvent($event)" [items]="sort_fields"
+                        [ngClass]="{'w-100 flex-end': _isMobileView}"></app-sort>
+                </li>
+                <li class="nav-item d-flex ml-2"
+                    [ngClass]="{'mb-2 w-1000 ml-auto': _isMobileView, 'ml-3': !_isMobileView }">
+                    <app-pagination (pageEvent)="onPageEvent($event)" [page_length]="page_length"
+                        [ngClass]="{'w-100 flex-end align-items-center': _isMobileView}"></app-pagination>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <ng-container *ngIf="(feed && feed.length > 0) else notFound">
+        <div>
+            <app-cards [feed]="feed"></app-cards>
+        </div>
+        <div>
+            <app-table [feed]="feed"></app-table>
+        </div>
+    </ng-container>
+</div>
+
+<ng-template #notFound>
+    <div class="container d-flex justify-flex-center">
+        <lottie-player src="assets/illustrations/not_found.json" background="transparent"
+            style="width: 350px; height: 500px;" speed="1" loop autoplay></lottie-player>
+    </div>
+</ng-template>

@@ -1,0 +1,13 @@
+Page <input type="number" class="form page-input ml-2" min="1" [max]="pages" [(ngModel)]="page"
+    (ngModelChange)="gotoPage($event)" />
+<span class="ml-2">of {{pages}}</span>
+<div class="btn-group ml-2">
+    <button type="button" class="btn btn-default btn-sm" (click)="pageMinus()" [disabled]="(page_options.page === 1)"
+        disabled="disabled">
+        <img src="assets/images/icons/chevron_left.svg" alt="chevron_left">
+    </button>
+    <button type="button" class="btn btn-default btn-sm" (click)="pagePlus()"
+        [disabled]="(page_options.page >= page_options.pages)">
+        <img src="assets/images/icons/chevron_right.svg" alt="chevron_right">
+    </button>
+</div>
