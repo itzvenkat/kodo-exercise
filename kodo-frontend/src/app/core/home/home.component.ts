@@ -10,6 +10,7 @@ import { Base, SortBy, SortOptions } from 'src/app/shared/models/sort.model';
 import { FeedService } from 'src/app/shared/services/feed.service';
 import { StoreService } from 'src/app/shared/services/store.service';
 import { AppHomeConstants } from './home.constants';
+import { NgxUiLoaderService } from 'ngx-ui-loader';
 
 @Component({
   selector: 'app-home',
@@ -27,12 +28,14 @@ export class HomeComponent extends Unsubscribe implements OnInit {
 
   filter: Filter | null = null;
   routeParams: Filter | null = null;
+  showError: boolean = false;
 
   constructor(
     private readonly storeService: StoreService,
     private readonly router: Router,
     private readonly activatedRoute: ActivatedRoute,
     private readonly feedService: FeedService,
+    private readonly ngxService: NgxUiLoaderService
   ) {
     super();
     this.subscription$.sink = this.storeService._isMobileView$.subscribe((value: boolean) => {
@@ -63,7 +66,6 @@ export class HomeComponent extends Unsubscribe implements OnInit {
   }
 
   getFeed(filter: Filter | null) {
-    console.log(filter);
     const params: any = {};
     if (filter?.page) params['page'] = filter.page;
     if (filter?.count) params['count'] = filter.count;
@@ -72,7 +74,9 @@ export class HomeComponent extends Unsubscribe implements OnInit {
     if (filter?.sort_by && (filter.sort)) params['sort_by'] = filter.sort_by;
     this.feed = [];
     this.page_length = 1;
-    this.storeService.isLoading = true;
+    this.showError = false;
+    // this.storeService.isLoading = true;
+    this.ngxService.start(`getFeed`);
     this.subscription$.sink = this.feedService.getHomeFeed(params).subscribe(
       (response: HttpResponse<IResponse<Feed[]>>) => {
         const result = (response?.body) ? (<IResponse<Feed[]>>response.body) : null;
@@ -81,15 +85,19 @@ export class HomeComponent extends Unsubscribe implements OnInit {
           this.page_length = result.total_pages ? result.total_pages : 1;
         } else {
           this.feed = [];
+          this.showError = true;
         }
       },
       (error: HttpErrorResponse) => {
         console.error(error);
         this.feed = [];
-        this.storeService.isLoading = false;
+        this.showError = true;
+        // this.storeService.isLoading = false;
+        this.ngxService.stop(`getFeed`);
       },
       () => {
-        this.storeService.isLoading = false;
+        // this.storeService.isLoading = false;
+        this.ngxService.stop(`getFeed`);
       }
     );
   }

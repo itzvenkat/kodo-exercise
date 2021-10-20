@@ -6,6 +6,8 @@ import { HomeController } from './controllers/home.controller';
 import { FeedRepository } from './repository/feed.repository';
 import { AppService } from './services/app.service';
 import { HomeService } from './services/home.service';
+import { ScheduleModule } from '@nestjs/schedule';
+import { SchedulerService } from './services/scheduler.service';
 
 @Module({
   imports: [
@@ -16,7 +18,8 @@ import { HomeService } from './services/home.service';
     CacheModule.register({
       ttl: 5,
       max: 10,
-    })
+    }),
+    ScheduleModule.forRoot()
   ],
   controllers: [
     AppController,
@@ -24,7 +27,8 @@ import { HomeService } from './services/home.service';
   ],
   providers: [
     AppService,
-    HomeService
+    HomeService,
+    SchedulerService
   ],
   exports: [TypeOrmModule]
 })

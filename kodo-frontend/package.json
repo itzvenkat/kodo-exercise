@@ -8,7 +8,8 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "server": "lite-server --baseDir=dist/",
-    "bundle:report": "source-map-explorer dist/**/*.js"
+    "bundle:report": "source-map-explorer dist/**/*.js",
+    "fb:deploy": "ng build && firebase deploy"
   },
   "private": true,
   "dependencies": {

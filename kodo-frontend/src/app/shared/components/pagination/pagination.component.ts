@@ -21,8 +21,8 @@ export class PaginationComponent extends Unsubscribe implements OnInit {
     this.subscription$.sink = this.storeService.routeParams$.subscribe((value: Filter) => {
       this.routeParams = value;
       setTimeout(() => {
-        this.page = ((value.page) && (value.page > 0) && (value.page <= this.pages)) ? `${value.page}` : `1`;        
-      }, 10);
+        this.page = ((value.page) && (value.page > 0) && (value.page <= this.pages)) ? `${value.page}` : `1`;
+      }, 300);
     });
   }
 

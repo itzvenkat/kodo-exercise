@@ -7,6 +7,8 @@ import { HomeComponent } from './core/home/home.component';
 import { SharedModule } from './shared/shared.module';
 import { CardsComponent } from './core/home/cards/cards.component';
 import { TableComponent } from './core/home/table/table.component';
+import { NgxUiLoaderModule } from 'ngx-ui-loader';
+import { loaderConfig } from './app.constants';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,8 @@ import { TableComponent } from './core/home/table/table.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    SharedModule
+    SharedModule,
+    NgxUiLoaderModule.forRoot(loaderConfig)
   ],
   providers: [],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

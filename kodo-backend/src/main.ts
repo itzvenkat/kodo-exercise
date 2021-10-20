@@ -11,7 +11,7 @@ import * as rateLimit from 'express-rate-limit';
 const logger = new Logger('bootstrap');
 
 const bootstrap = async (): Promise<void> => {
-  const PORT = config.get(`server.port`) || 3000;
+  const PORT = process.env.PORT || config.get(`server.port`) || 3000;
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
   app.setGlobalPrefix('api');
   app.enableCors();
@@ -21,7 +21,8 @@ const bootstrap = async (): Promise<void> => {
   await app.listen(PORT);
   AppConstants.APPLN_LAST_RUN_TIME = dayjs().format('YYYY-MM-DD hh:mm:ss A');
   logger.verbose(`Environment = ${config.has(`env`) ? config.get(`env`) : process.env.NODE_ENV}`);
-  if (!AppConstants._isProd) logger.verbose(JSON.stringify(config));
+  // if (!AppConstants._isProd) logger.verbose(JSON.stringify(config));
+  logger.verbose(JSON.stringify(config));
   logger.log(`Application running at port #${PORT}`);
 };
 

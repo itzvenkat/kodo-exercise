@@ -32,7 +32,7 @@
 
 <ng-template #notFound>
     <div class="container d-flex justify-flex-center">
-        <lottie-player src="assets/illustrations/not_found.json" background="transparent"
+        <lottie-player *ngIf="showError" src="assets/illustrations/not_found.json" background="transparent"
             style="width: 350px; height: 500px;" speed="1" loop autoplay></lottie-player>
     </div>
 </ng-template>

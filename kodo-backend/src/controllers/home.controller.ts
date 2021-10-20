@@ -2,7 +2,7 @@ import { CacheInterceptor, Controller, Get, HttpCode, HttpStatus, Logger, OnModu
 import { FiltersDTO } from 'src/models/app.model';
 import { HomeService } from 'src/services/home.service';
 
-const logger = new Logger('bootstrap');
+const logger = new Logger('HomeController');
 
 @Controller('home')
 @UseInterceptors(CacheInterceptor)
