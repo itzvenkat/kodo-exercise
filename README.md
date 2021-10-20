@@ -1,6 +1,6 @@
 # Kodo Coding Exercise
 
-- [LIVE APP](kodo.itzvenkat.in/home)
+- [LIVE APP](https://kodo.itzvenkat.in)
 - [Heroku VPS](https://kodo-exercise-api.herokuapp.com/api/)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.10 and [Nest CLI](https://docs.nestjs.com/cli/overview) version 8.
