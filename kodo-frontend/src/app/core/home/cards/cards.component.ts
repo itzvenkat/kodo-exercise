@@ -13,7 +13,7 @@ export class CardsComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.feed.splice(5,this.feed.length);
+    this.feed.splice(6,this.feed.length);
   }
 
 }

@@ -44,6 +44,10 @@ export class SortComponent extends Unsubscribe implements OnInit {
   }
 
   onSortByChange(type: 1 | 2) {
+    if ((!this.sort) && (this.items?.length > 0)) {
+      this.sort = this.items[0].value;
+      this.selected_field = this.items[0].label;
+    }
     this.sort_by = (type === 1) ? SortBy.ASC : (type === 2) ? SortBy.DESC : null;
     this.emitSelection();
   }
