@@ -1,0 +1,6 @@
+env: "PROD"
+
+# db:
+#   username: "root"
+#   password: "root"
+#   synchronize: true

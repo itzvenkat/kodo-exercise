@@ -21,4 +21,10 @@ export class StoreService {
     this._isMobileView.next(value);
   }
 
+  private _isLoading: BehaviorSubject<boolean> = new BehaviorSubject(<boolean>false);
+  _isLoading$: Observable<any> = this._isLoading.asObservable();
+  set isLoading(value: boolean) {
+    this._isLoading.next(value);
+  }
+
 }

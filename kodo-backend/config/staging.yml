@@ -1,0 +1,10 @@
+env: "STAG"
+
+# db:
+#   type: 'mysql'
+#   port: 3306
+#   database: 'kodo'
+#   username: 'root'
+#   password: 'root'
+#   synchronize: true
+#   logging: false

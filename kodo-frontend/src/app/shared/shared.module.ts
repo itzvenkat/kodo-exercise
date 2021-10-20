@@ -4,12 +4,14 @@ import { SearchComponent } from './components/search/search.component';
 import { FormsModule } from '@angular/forms';
 import { SortComponent } from './components/sort/sort.component';
 import { PaginationComponent } from './components/pagination/pagination.component';
+import { LoadingComponent } from './components/loading/loading.component';
 
 @NgModule({
   declarations: [
     SearchComponent,
     SortComponent,
-    PaginationComponent
+    PaginationComponent,
+    LoadingComponent
   ],
   imports: [
     CommonModule,
@@ -18,7 +20,8 @@ import { PaginationComponent } from './components/pagination/pagination.componen
   exports: [
     SearchComponent,
     SortComponent,
-    PaginationComponent
+    PaginationComponent,
+    LoadingComponent
   ]
 })
 export class SharedModule { }

@@ -1,4 +1,5 @@
 import { Component, HostListener, OnInit } from '@angular/core';
+import { Unsubscribe } from './shared/adapters/unsubscribe';
 import { StoreService } from './shared/services/store.service';
 
 @Component({
@@ -6,11 +7,19 @@ import { StoreService } from './shared/services/store.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
+export class AppComponent extends Unsubscribe implements OnInit {
   _isMobileView: boolean = false;
+  _isLoading = true;
 
   constructor(private readonly storeService: StoreService) {
-
+    super();
+    // this.subscription$.sink = this.storeService._isLoading$.subscribe(
+    //   (_isLoading: boolean) => {
+    //     setTimeout(() => {
+    //       this._isLoading = _isLoading;
+    //     }, 1000);
+    //   }
+    // );
   }
 
   ngOnInit(): void {
