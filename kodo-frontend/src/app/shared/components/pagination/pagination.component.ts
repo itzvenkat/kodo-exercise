@@ -37,9 +37,9 @@ export class PaginationComponent extends Unsubscribe implements OnInit, OnChange
     }
   }
 
-  gotoPage(value: any): void {
+  gotoPage(): void {
     setTimeout(() => {
-      this.page = ((parseInt(value) > 0) && (parseInt(value) <= this.pages)) ? value : '1';
+      this.page = ((parseInt(this.page) > 0) && (parseInt(this.page) <= this.pages)) ? this.page : '1';
       this.emitPageEvent();
     }, 10);
   }

@@ -1,5 +1,5 @@
 Page <input type="number" class="form page-input ml-2" min="1" [max]="pages" [(ngModel)]="page"
-    (ngModelChange)="gotoPage($event)" />
+    (keydown.enter)="gotoPage()" />
 <span class="ml-2">of {{pages}}</span>
 <div class="btn-group ml-2">
     <button type="button" class="btn btn-default btn-sm" (click)="pageMinus()" [disabled]="(page_options.page === 1)"
