@@ -8,7 +8,7 @@ import { SharedModule } from './shared/shared.module';
 import { CardsComponent } from './core/home/cards/cards.component';
 import { TableComponent } from './core/home/table/table.component';
 import { NgxUiLoaderModule } from 'ngx-ui-loader';
-import { loaderConfig } from './app.constants';
+import { loaderConfig } from './shared/constants/app.constants';
 
 @NgModule({
   declarations: [
