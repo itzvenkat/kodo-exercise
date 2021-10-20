@@ -36,14 +36,14 @@ export class SortComponent extends Unsubscribe implements OnInit {
   ngOnInit(): void {
   }
 
-  onFieldChange(selected_option: Base) {
+  onFieldChange(selected_option: Base): void {
     this.sort = selected_option.value;
     this.selected_field = selected_option.label;
     if (!this.sort_by) this.sort_by = SortBy.ASC;
     this.emitSelection();
   }
 
-  onSortByChange(type: 1 | 2) {
+  onSortByChange(type: 1 | 2): void {
     if ((!this.sort) && (this.items?.length > 0)) {
       this.sort = this.items[0].value;
       this.selected_field = this.items[0].label;
@@ -52,7 +52,7 @@ export class SortComponent extends Unsubscribe implements OnInit {
     this.emitSelection();
   }
 
-  ClearSorting() {
+  clearSorting(): void {
     this.sort_by = null;
     this.sort = null;
     this.selected_field = 'Sort By';

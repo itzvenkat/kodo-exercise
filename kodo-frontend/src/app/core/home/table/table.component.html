@@ -11,7 +11,7 @@
                 <tr *ngIf="(feed == undefined || feed == null || feed?.length == 0)">
                     <td colspan="4" class="text-center">No Records</td>
                 </tr>
-                <tr *ngFor="let el of feed; let i = index">
+                <tr *ngFor="let el of feed; let i = index; trackBy: trackByFn;">
                     <td><b>{{el.name}}</b></td>
                     <td>{{el.description}}</td>
                     <td><a [href]="el.image" target="_blank" title="Open Image in new tab">{{el.image}}</a></td>

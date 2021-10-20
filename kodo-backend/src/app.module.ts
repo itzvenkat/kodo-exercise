@@ -15,10 +15,7 @@ import { SchedulerService } from './services/scheduler.service';
     TypeOrmModule.forFeature([
       FeedRepository
     ]),
-    CacheModule.register({
-      ttl: 5,
-      max: 10,
-    }),
+    CacheModule.register({ ttl: 5, max: 10, }),
     ScheduleModule.forRoot()
   ],
   controllers: [

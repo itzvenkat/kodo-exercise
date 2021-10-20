@@ -20,12 +20,9 @@ import { NgxUiLoaderService } from 'ngx-ui-loader';
 export class HomeComponent extends Unsubscribe implements OnInit {
   _isMobileView: boolean = false;
   sort_fields: Base[] = AppHomeConstants.sort_fields;
-
   feed: Feed[] = [];
-
   page_length: number = 1;
   records: number = 6;
-
   filter: Filter | null = null;
   routeParams: Filter | null = null;
   showError: boolean = false;
@@ -65,7 +62,7 @@ export class HomeComponent extends Unsubscribe implements OnInit {
     this.getFeed(this.filter);
   }
 
-  getFeed(filter: Filter | null) {
+  getFeed(filter: Filter | null): void {
     const params: any = {};
     if (filter?.page) params['page'] = filter.page;
     if (filter?.count) params['count'] = filter.count;
@@ -102,7 +99,7 @@ export class HomeComponent extends Unsubscribe implements OnInit {
     );
   }
 
-  onSearchEvent(search_text: string) {
+  onSearchEvent(search_text: string): void {
     if (this.filter) {
       this.filter.search = search_text;
       this.filter.page = 1;
@@ -114,7 +111,7 @@ export class HomeComponent extends Unsubscribe implements OnInit {
     // console.log(search_text, 'search_text');
   }
 
-  onSortEvent(sort_options: SortOptions) {
+  onSortEvent(sort_options: SortOptions): void {
     if (this.filter) {
       this.filter.sort = sort_options.sort;
       this.filter.sort_by = sort_options.sort_by;
@@ -126,7 +123,7 @@ export class HomeComponent extends Unsubscribe implements OnInit {
     // console.log(sort_options, 'sort_options');
   }
 
-  onPageEvent(page_options: Paging) {
+  onPageEvent(page_options: Paging): void {
     if (this.filter) {
       this.filter.page = page_options.page;
       this.filter.count = this.records;
@@ -138,7 +135,7 @@ export class HomeComponent extends Unsubscribe implements OnInit {
     // console.log(page_options, 'page_options');
   }
 
-  setQueryParams() {
+  setQueryParams(): void {
     this.router.navigate([], {
       queryParams: {
         page: this.filter?.page ? this.filter.page : undefined,

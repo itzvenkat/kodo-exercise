@@ -23,6 +23,7 @@ export class AppComponent extends Unsubscribe implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log("%cKodo - Coding Exercise", "color: red; font-size: 4rem; font-weight: bolder; text-shadow: #000 1px 1px;")
     this.onResize();
   }
 

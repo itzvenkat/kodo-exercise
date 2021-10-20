@@ -20,7 +20,7 @@ export class HomeController implements OnModuleInit {
 
     async onModuleInit(): Promise<void> {
         const response = await this.homeService.insertMockData();
-        logger.log('##Mock Data inserted##');
+        logger.log(`Mock Data inserted..`);
     }
 
 }

@@ -15,4 +15,6 @@ export class TableComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  trackByFn(data: any, index: any) { return index; }
+
 }

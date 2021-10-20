@@ -12,9 +12,9 @@ import { StoreService } from '../../services/store.service';
 })
 export class SearchComponent extends Unsubscribe implements OnInit {
 
-  searchText: string = '';
   @ViewChild('searchInput', { static: true }) searchTextRef: ElementRef | null = null;
   @Output() searchEvent: EventEmitter<string> = new EventEmitter();
+  searchText: string = '';
   routeParams: Filter | null = null;
 
   constructor(private readonly storeService: StoreService) {

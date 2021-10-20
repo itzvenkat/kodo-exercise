@@ -10,7 +10,7 @@
             <li [ngClass]="{ 'active': sort_by === 'ASC' }" (click)="onSortByChange(1)">Ascending</li>
             <li [ngClass]="{ 'active': sort_by === 'DESC' }" (click)="onSortByChange(2)">Descending</li>
             <li class="divider"></li>
-            <li (click)="ClearSorting()">Clear Sorting</li>
+            <li (click)="clearSorting()">Clear Sorting</li>
         </ul>
     </label>
 </ng-container>

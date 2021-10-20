@@ -21,8 +21,7 @@ const bootstrap = async (): Promise<void> => {
   await app.listen(PORT);
   AppConstants.APPLN_LAST_RUN_TIME = dayjs().format('YYYY-MM-DD hh:mm:ss A');
   logger.verbose(`Environment = ${config.has(`env`) ? config.get(`env`) : process.env.NODE_ENV}`);
-  // if (!AppConstants._isProd) logger.verbose(JSON.stringify(config));
-  logger.verbose(JSON.stringify(config));
+  if (!AppConstants._isProd) logger.verbose(JSON.stringify(config));
   logger.log(`Application running at port #${PORT}`);
 };
 

@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { Unsubscribe } from '../../adapters/unsubscribe';
 import { Filter } from '../../models/filter.model';
 import { Paging } from '../../models/pagination.model';
@@ -9,11 +9,11 @@ import { StoreService } from '../../services/store.service';
   templateUrl: './pagination.component.html',
   styleUrls: ['./pagination.component.css']
 })
-export class PaginationComponent extends Unsubscribe implements OnInit {
+export class PaginationComponent extends Unsubscribe implements OnInit, OnChanges {
 
   @Input('page_length') pages: number = 1;
-  page: string = '1';
   @Output() pageEvent: EventEmitter<Paging> = new EventEmitter();
+  page: string = '1';
   routeParams: Filter | null = null;
 
   constructor(private readonly storeService: StoreService) {
@@ -21,36 +21,44 @@ export class PaginationComponent extends Unsubscribe implements OnInit {
     this.subscription$.sink = this.storeService.routeParams$.subscribe((value: Filter) => {
       this.routeParams = value;
       setTimeout(() => {
-        this.page = ((value.page) && (value.page > 0) && (value.page <= this.pages)) ? `${value.page}` : `1`;
-      }, 300);
+        this.page = (value.page) ? `${value.page}` : `1`;
+      }, 100);
     });
   }
 
   ngOnInit(): void {
   }
 
-  gotoPage(value: any) {
+  ngOnChanges(changes: SimpleChanges): void {
+    const page_length = changes?.pages?.currentValue;
+    if (page_length) {
+      const current_page: number = parseInt(this.page);
+      this.page = ((current_page > 0) && (current_page <= page_length)) ? `${current_page}` : `1`;
+    }
+  }
+
+  gotoPage(value: any): void {
     setTimeout(() => {
       this.page = ((parseInt(value) > 0) && (parseInt(value) <= this.pages)) ? value : '1';
       this.emitPageEvent();
     }, 10);
   }
 
-  pageMinus() {
+  pageMinus(): void {
     if (this.page_options.page > 1) {
       this.page = `${(this.page_options.page - 1)}`;
       this.emitPageEvent();
     }
   }
 
-  pagePlus() {
+  pagePlus(): void {
     if (this.pages >= this.page_options.page) {
       this.page = `${(this.page_options.page + 1)}`;
       this.emitPageEvent();
     }
   }
 
-  emitPageEvent() {
+  emitPageEvent(): void {
     this.pageEvent.emit(this.page_options);
   }
 

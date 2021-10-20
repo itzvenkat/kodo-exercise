@@ -1,5 +1,8 @@
 # Kodo Coding Exercise
 
+- [LIVE APP](kodo.itzvenkat.in/home)
+- [Heroku VPS](https://kodo-exercise-api.herokuapp.com/api/)
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.10 and [Nest CLI](https://docs.nestjs.com/cli/overview) version 8.
 
 ## Installation
@@ -8,7 +11,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 $ npm i
 ```
 
-## Running the app
+## Running the app - Frontend
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
@@ -26,25 +29,46 @@ $ npm run bundle:report
 $ npm run server
 ```
 
-## Code scaffolding
+## Running the app - Backend
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Run `npm run start:dev` for a dev server. Navigate to `http://localhost:3000/api/`. The app will automatically reload if you change any of the source files.
 
-## Build
+```bash
+# development
+$ npm run start:dev
+
+# debug mode
+$ npm run start:debug
+```
+
+## Build & Deploy
+
+### Frontend
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Running unit tests
+```bash
+# For production,
+$ ng build
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+# Firebase Deploy
+$ npm run fb:deploy
+```
 
-## Running end-to-end tests
+### Backend
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Run `nest build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Further help
+```bash
+# For production,
+$ npm run build:server
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+# Docker Build
+$ npm run hk:build
+
+# Heroku Deploy
+$ npm run hk:deploy
+```
 
 ## Stay in touch
 
@@ -52,4 +76,6 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## License
 
+  This app is [MIT licensed](https://github.com/itzvenkat/kodo-exercise/blob/main/LICENSE).
   Angular is [MIT licensed](https://angular.io/license).
+  NestJs is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
