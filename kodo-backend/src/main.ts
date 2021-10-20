@@ -7,7 +7,6 @@ import * as config from "config";
 import * as dayjs from "dayjs";
 import * as helmet from 'helmet';
 import * as rateLimit from 'express-rate-limit';
-import * as functions from 'firebase-functions';
 
 const logger = new Logger('bootstrap');
 
@@ -27,8 +26,3 @@ const bootstrap = async (): Promise<void> => {
 };
 
 bootstrap();
-
-export const api = functions.region('europe-west1')
-  .https.onRequest(async (request, response) => {
-    await bootstrap();
-  });
