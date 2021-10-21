@@ -9,6 +9,8 @@ import { CardsComponent } from './core/home/cards/cards.component';
 import { TableComponent } from './core/home/table/table.component';
 import { NgxUiLoaderModule } from 'ngx-ui-loader';
 import { loaderConfig } from './shared/constants/app.constants';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,11 @@ import { loaderConfig } from './shared/constants/app.constants';
     AppRoutingModule,
     HttpClientModule,
     SharedModule,
-    NgxUiLoaderModule.forRoot(loaderConfig)
+    NgxUiLoaderModule.forRoot(loaderConfig),
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+      registrationStrategy: 'registerWhenStable:30000'
+    })
   ],
   providers: [],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
