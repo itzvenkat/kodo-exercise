@@ -6,11 +6,12 @@
 
 .btn-default {
   background-color: #fcfdfd;
-  border-color: #dee5e7;
+  /* border-color: #dee5e7; */
   border-radius: 4px;
   color: #58666e !important;
   font-weight: 500;
   outline: 0;
+  border: 0;
 }
 
 .btn-group > .btn {

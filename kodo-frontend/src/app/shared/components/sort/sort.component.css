@@ -1,7 +1,6 @@
 .btn-dropdown {
   display: inline-block;
   position: relative;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
 
 .dd-button {
@@ -11,6 +10,7 @@
   background-color: #ffffff;
   cursor: pointer;
   white-space: nowrap;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
 
 .dd-button:after {

@@ -188,6 +188,10 @@ ul {
   margin-right: 1rem !important;
 }
 
+.mr-5px {
+  margin-right: 5px;
+}
+
 .flex-end {
   display: flex;
   justify-content: flex-end;
